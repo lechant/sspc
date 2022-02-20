@@ -1,0 +1,136 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://assets/fonts/BalsamiqSans-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://gui/Dialog.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/EightBitDragon-anqx.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/fonts/BalsamiqSans-BoldItalic.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/fonts/BalsamiqSans-Regular.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://assets/fonts/BalsamiqSans-Italic.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+extra_spacing_bottom = 2
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 5 )
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -2 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "boop"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Dialog" type="Control"]
+margin_right = 1024.0
+margin_bottom = 600.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 1.014
+anchor_right = 0.5
+anchor_bottom = 1.014
+margin_left = -384.0
+margin_top = -160.4
+margin_right = 384.0
+margin_bottom = -16.4
+color = Color( 0.34902, 0.25098, 0.25098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+margin_left = 8.0
+margin_top = 10.0
+margin_right = 758.0
+margin_bottom = 136.0
+color = Color( 0.239216, 0.164706, 0.164706, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Name" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.014
+anchor_right = 0.5
+anchor_bottom = 1.014
+margin_left = -368.0
+margin_top = -144.4
+margin_right = 72.0
+margin_bottom = -120.4
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_text = "Test"
+text = "Test"
+
+[node name="Text" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -368.0
+margin_top = -112.0
+margin_right = 368.0
+margin_bottom = -24.0
+custom_fonts/bold_italics_font = SubResource( 6 )
+custom_fonts/italics_font = SubResource( 5 )
+custom_fonts/bold_font = SubResource( 7 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Hello World. This is a dialog [i]box [/i][img]res://assets/chest4.png[/img]"
+text = "Hello World. This is a dialog box "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Indicator" type="Polygon2D" parent="."]
+position = Vector2( 856, 564 )
+scale = Vector2( 0.5, 0.458333 )
+offset = Vector2( 0, -2 )
+polygon = PoolVector2Array( 0, 0, 16, 0, 32, 0, 16, 24 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Indicator"]
+autoplay = "boop"
+anims/RESET = SubResource( 2 )
+anims/boop = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Tween" type="Tween" parent="."]

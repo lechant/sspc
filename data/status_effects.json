@@ -1,0 +1,14 @@
+{
+    "poison" : {
+        "event" : ["turn_start"]
+    },
+    "stun" : {
+        "event" : ["turn_start"]
+    },
+    "bleed" : {
+        "event" : ["on_move"]
+    },
+    "root" : {
+        "event" : ["turn_start"]
+    }
+}

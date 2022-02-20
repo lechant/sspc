@@ -1,0 +1,29 @@
+{
+    "charA" : {
+        "move_range" : 3,
+        "health" : 8,
+        "action_points" : 8,
+        "reach" : 4,
+        "absorption": 1,
+        "scene_name":"unit",
+        "type":"player"
+    },
+    "charB" : {
+        "move_range" : 5,
+        "health" : 6,
+        "action_points" : 6,
+        "reach" : 1,
+        "absorption": 3,
+        "scene_name":"unit",
+        "type":"player"
+    },
+    "masked_orc" : {
+        "move_range" : 5,
+        "health" : 7,
+        "action_points" : 6,
+        "reach" : 1,
+        "absorption": 3,
+        "scene_name":"masked_orc",
+        "type":"enemy"
+    }
+}
