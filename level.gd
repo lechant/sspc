@@ -5,6 +5,6 @@ var json_reader = preload("res://controller/Json_reader.tres")
 var floating_text = preload("res://objects/FloatingText.tscn")
 
 func _ready():
-	order.printToString()
 #	var json_test = json_reader.read_json("res://data/data.json")
 #	print(json_test["test"])
+	pass

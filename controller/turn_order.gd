@@ -30,7 +30,3 @@ func _sort_initiative(a,b):
 	if a.initiative > b.initiative:
 		return true
 	return false
-	
-func printToString():
-	for member in turn_queue:
-		print("id: " + String(member.id) + ", initiative: " + String(member.initiative))
