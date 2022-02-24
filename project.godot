@@ -24,11 +24,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://objects/Chest.gd"
 }, {
-"base": "Resource",
-"class": "Grid",
-"language": "GDScript",
-"path": "res://controller/Grid.gd"
-}, {
 "base": "Area2D",
 "class": "Interactive_Object",
 "language": "GDScript",
@@ -43,7 +38,6 @@ _global_script_class_icons={
 "Astar_Path": "",
 "Characters": "",
 "Chest": "res://assets/chest3.png",
-"Grid": "",
 "Interactive_Object": "",
 "unit": ""
 }

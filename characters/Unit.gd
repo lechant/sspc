@@ -116,7 +116,7 @@ func move_end():
 	pass
 
 func on_move():
-	if last_point && global_position > last_point:
+	if last_point && global_position.x > last_point.x:
 		sprite.set_flip_h(true)
 	else:
 		sprite.set_flip_h(false)

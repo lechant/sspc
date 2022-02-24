@@ -8,4 +8,10 @@ func _ready():
 	pass # Replace with function body.
 	
 func _process(delta):
-	global_position = global_position.move_toward(character_manager.get_active_unit().global_position,delta * 200)
+	var mov_pos = null
+	if character_manager.get_active_unit():
+		mov_pos = character_manager.get_active_unit().global_position
+	else:
+		mov_pos = character_manager.get_unit_by_id(turn_order.cycle_unit_list("player").id).global_position
+	global_position = global_position.move_toward(mov_pos,delta * 200)
+
