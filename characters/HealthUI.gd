@@ -50,7 +50,3 @@ func _assign_color(health):
 		health_bar_over.tint_progress = Color.yellow
 	else:
 		health_bar_over.tint_progress = Color.lime
-		
-#func _input(event):
-#	if event.is_action_pressed("ui_down"):
-#		set_status()

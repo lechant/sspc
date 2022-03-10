@@ -25,20 +25,18 @@ export var base_stats = {}
 export var curr_stats = {}
 
 var state = IDLE
-#var status = [
-#	{"name":"poison","duration":4,"strength":2,"event":["turn_start"]}
-#]
 var status = []
 
 var rng = RandomNumberGenerator.new()
 
 func _ready():
-	animation_player.play("idle")
+	#animation_player.play("idle")
 	curve = Curve2D.new()
 	health_ui.max_health = base_stats['health']
 
 func move(path):
 	animation_player.play("moving")
+	print("play moving animation")
 	path_points_length = path.size()
 	for point in path:
 		curve.add_point(point)
@@ -124,9 +122,6 @@ func on_move():
 	status = status_effects.apply_status(self,"on_move")
 	
 func on_skill_use(val):
+	state = SKILL
+	print("skilluse event")
 	return val
-	
-#func _input(event):
-#	if event.is_action_pressed("ui_down"):
-#		base_stats['health'] -= 1
-#		health_ui.set_health(base_stats['health'])

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://assets/masked_orc.png" type="Texture" id=1]
-[ext_resource path="res://characters/Unit.tscn" type="PackedScene" id=2]
-[ext_resource path="res://characters/masked_orc.gd" type="Script" id=3]
+[ext_resource path="res://characters/BasePlayer.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/elf.png" type="Texture" id=2]
+[ext_resource path="res://characters/Summoner.gd" type="Script" id=3]
 [ext_resource path="res://characters/color.gdshader" type="Shader" id=4]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -12,11 +12,9 @@ shader_param/flash_color = Color( 1, 1, 1, 1 )
 shader_param/flash_modifier = 1.0
 shader_param/active = false
 
-[node name="Unit" instance=ExtResource( 2 )]
+[node name="Unit" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
 [node name="Sprite" parent="PathFollow2D" index="0"]
 material = SubResource( 1 )
-position = Vector2( 0, 6 )
-texture = ExtResource( 1 )
-hframes = 8
+texture = ExtResource( 2 )

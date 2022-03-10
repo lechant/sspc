@@ -7,7 +7,7 @@ var flood_fill_bucket = []
 func _ready():
 	pass
 	
-func movement_range(unit_position,move_range):
+func radial_highlight(unit_position,move_range):
 	clear()
 	var unit_grid_position = world_to_map(unit_position)
 	area_fill(unit_grid_position,move_range)

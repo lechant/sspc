@@ -1,0 +1,110 @@
+{
+	"summoner":{
+		"trees":{
+			"Undead":[
+				{
+					"name":"Zombies",
+					"description":"melee meatshield",
+					"prequisite":[],
+                    "cost":3,
+                    "selection":{"type":"point","range":2,"limit":2,"flags":["unoccupied"]}
+				},
+				{
+					"name":"Specters",
+					"description":"ranged unit with no body blocking",
+					"prequisite":[],
+					"cost":3,
+                    "selection":{"type":"unit","range":5,"limit":2,"targets":["enemy"],"flags":[]}
+				},
+				{
+					"name":"Abomination",
+					"description":"requires tribute to zombies. stronger melee meatshield. Heals itself when it kills an enemy",
+					"prequisite":["Zombies"],
+					"cost":4
+				},
+				{
+					"name":"Aberation",
+					"description":"requires tribute of specters. ranged unit with no body blocking. Attacks deal dmg in a small AoE",
+					"prequisite":["Specters"],
+					"cost":4
+				},
+				{
+					"name":"Monstrosity",
+					"description":"requires the tribute of Abominations and Specters. Heals itself slightly when it damages an enemy. Enemies take damage when they start their turn next to them",
+					"prequisite":["Abomination","Aberation"],
+					"cost":6
+				}
+			],
+			"Nature":[
+				{
+					"name":"Attack Dogs",
+					"description":"can hold enemies in place for a turn",
+					"prequisite":[],
+					"cost":3
+				},
+				{
+					"name":"Scout Pidgeons",
+					"description":"scouts ahead to give sight on enemies. Does not get body blocked or body block other units",
+					"prequisite":[],
+					"cost":3
+				},
+				{
+					"name":"Direwolves",
+					"description":"gives increased crit rate to nearby allies. Can restrain enemies for a turn.",
+					"prequisite":["Attack Dogs"],
+					"cost":4
+				},
+				{
+					"name":"Hawks",
+					"description":"Can deal damage and reduce defence  of enemies. Does not get body blocked or body block other units",
+					"prequisite":["Scout Pidgeons"],
+					"cost":4
+				},
+				{
+					"name":"Hell Moose",
+					"description":"can deal knockback in an area.",
+					"prequisite":["Scout Pidgeons","Attack Dogs"],
+					"cost":4
+				},
+				{
+					"name":"Cute Puppy",
+					"description":"distracts enemies, reducing their attack and absorption.",
+					"prequisite":["Direwolves"],
+					"cost":6
+				}
+			],
+			"Aura":[
+				{
+					"name":"Heal",
+					"description":"heals a target",
+					"prequisite":[],
+					"cost":3
+				},
+				{
+					"name":"Restoration",
+					"description":"removes conditions from a target",
+					"prequisite":[],
+					"cost":4
+				},
+				{
+					"name":"Encouraging presence",
+					"description":"Increases atk dmg of nearby allies, raises base absorption by 1",
+					"prequisite":[],
+					"cost":5
+				},
+				{
+					"name":"Mass Heal",
+					"description":"Heals targets in an AoE",
+					"prequisite":[],
+					"cost":4
+				},
+				{
+					"name":"Mass Restore",
+					"description":"removes all conditions from targets in an AoE",
+					"prequisite":[],
+					"cost":6
+				}
+			]
+		}
+    }
+}

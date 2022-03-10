@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://gui/options.tres" type="StyleBox" id=1]
+[ext_resource path="res://gui/GUI_options.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/UbuntuMono-Regular.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[node name="Panel" type="Panel"]
+margin_right = 100.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 130, 22 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_styles/panel = ExtResource( 1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="label" type="Label" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+rect_min_size = Vector2( 0, 22 )
+focus_mode = 1
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Option"
+valign = 1
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+show_behind_parent = true
+anchor_right = 0.985
+anchor_bottom = 0.909
+margin_right = -0.0500031
+margin_bottom = 0.0019989
+size_flags_horizontal = 3
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_Panel_mouse_entered"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

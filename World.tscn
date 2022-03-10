@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://assets/floor.png" type="Texture" id=1]
 [ext_resource path="res://Floor.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://InteractiveObjects.gd" type="Script" id=10]
 [ext_resource path="res://Camera2D.gd" type="Script" id=11]
 [ext_resource path="res://assets/floor_spikes.png" type="Texture" id=12]
+[ext_resource path="res://gui/CombatMenu.tscn" type="PackedScene" id=13]
 [ext_resource path="res://assets/gates.png" type="Texture" id=14]
 
 [sub_resource type="TileSet" id=2]
@@ -163,7 +164,7 @@ script = ExtResource( 7 )
 
 [node name="Camera2D" type="Camera2D" parent="level"]
 current = true
-zoom = Vector2( 0.45, 0.45 )
+zoom = Vector2( 0.5, 0.5 )
 script = ExtResource( 11 )
 
 [node name="Environment" type="TileMap" parent="level"]
@@ -201,9 +202,9 @@ position = Vector2( 8, 232 )
 [node name="CharacterManager" type="Node" parent="level"]
 script = ExtResource( 9 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Gui" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Gui"]
 visible = false
 margin_top = 544.0
 margin_right = 256.0
@@ -212,12 +213,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="Label" type="Label" parent="Gui/VBoxContainer"]
 margin_right = 256.0
 margin_bottom = 14.0
 text = "Testing label"
 
-[node name="Dialog" parent="CanvasLayer" instance=ExtResource( 8 )]
+[node name="Dialog" parent="Gui" instance=ExtResource( 8 )]
 visible = false
 anchor_left = 0.5
 anchor_top = 1.0
@@ -227,3 +228,8 @@ margin_left = -513.0
 margin_top = -172.0
 margin_right = 512.0
 margin_bottom = 0.0
+
+[node name="CombatMenu" parent="Gui" instance=ExtResource( 13 )]
+margin_top = -152.0
+
+[connection signal="skill_select" from="Gui/CombatMenu" to="level/CharacterManager" method="_on_CombatMenu_skill_select"]

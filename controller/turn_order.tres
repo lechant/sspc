@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource( 1 )
 turn_queue = [  ]
+round_queue = [  ]

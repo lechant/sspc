@@ -6,6 +6,8 @@ onready var cells = get_used_cells();
 
 const neighbours = [Vector2.RIGHT,Vector2.LEFT,Vector2.UP,Vector2.DOWN,Vector2(1,1),Vector2(-1,-1),Vector2(-1,1),Vector2(1,-1)]
 
+var disabled_bucket = []
+
 func _ready():
 	#print("cell count: " + String(cells.size()))
 	_add_points()
@@ -34,6 +36,16 @@ func connect_cell(cell):
 			#print("connecting cell to " + String(next_cell))
 			astar.connect_points(id(cell),id(next_cell))
 			astar.connect_points(id(next_cell),id(cell))
+
+func set_point_disabled(point):
+	print("disable points")
+	disabled_bucket.push_back(id(point))
+	astar.set_point_disabled(id(point),true)
+	
+func enable_disabled_points():
+	print("enable points")
+	for point_id in disabled_bucket:
+		astar.set_point_disabled(point_id,false)
 
 #cantor pairing function	
 func id(point):

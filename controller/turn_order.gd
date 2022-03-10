@@ -1,6 +1,8 @@
 extends Resource
 
 export var turn_queue = []
+export var round_queue = []
+var round_count = 0
 
 class Queue_member:
 	var id = null
@@ -19,12 +21,17 @@ func add_to_queue(unit_data,initiative,coord = Vector2(0,0)):
 	turn_queue.sort_custom(self,"_sort_initiative")
 	
 func next():
-	var temp = turn_queue.pop_front()
-	turn_queue.push_back(temp)
-	print(turn_queue)
+	if round_queue.size() == 0:
+		round_count += 1
+		round_queue = turn_queue.duplicate(true)
+	print(round_queue)
+	var temp = round_queue.pop_front()
 	
 func get_current():
-	return turn_queue[0]
+	if round_queue.size() == 0:
+		round_count += 1
+		round_queue = turn_queue.duplicate(true)
+	return round_queue[0]
 	
 func _sort_initiative(a,b):	
 	if a.initiative > b.initiative:
