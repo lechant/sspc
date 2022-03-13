@@ -20,13 +20,13 @@ func _ready():
 	turn_order.add_to_queue("slime",4,Vector2(2,5))
 	turn_order.add_to_queue("summoner",5,Vector2(1,1))
 	#connect to all signals emitted by unit nodes
-	for unit_node in turn_order.turn_queue:
-		var data = character_data[unit_node.id]
+	for unit_data in turn_order.turn_queue:
+		var data = character_data[unit_data.id]
 		var unit_scene = load("res://characters/%s.tscn"%data['scene_name'])
 		var new_unit = unit_scene.instance()
-		new_unit.initialize(unit_node.id,data)
+		new_unit.initialize(unit_data.id,data)
 		new_unit.connect("move_complete",self,"_on_Unit_move_complete")
-		new_unit.position = path_tiles.map_to_world(unit_node.initial_coord)
+		new_unit.position = path_tiles.map_to_world(unit_data.initial_coord)
 		add_child(new_unit)
 	highlight_move_range()
 	

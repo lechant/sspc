@@ -25,7 +25,10 @@ func _connect_points():
 			if cells.has(next_cell):
 				astar.connect_points(id(cell),id(next_cell))
 				
-func get_astar_path(a,b):
+func get_astar_path(a,b,convert_to_map = false):
+	if convert_to_map:
+		a = world_to_map(a)
+		b = world_to_map(b)
 	return astar.get_point_path(id(a),id(b))
 	
 func connect_cell(cell):
@@ -38,12 +41,10 @@ func connect_cell(cell):
 			astar.connect_points(id(next_cell),id(cell))
 
 func set_point_disabled(point):
-	print("disable points")
 	disabled_bucket.push_back(id(point))
 	astar.set_point_disabled(id(point),true)
 	
 func enable_disabled_points():
-	print("enable points")
 	for point_id in disabled_bucket:
 		astar.set_point_disabled(point_id,false)
 

@@ -14,9 +14,9 @@ class Queue_member:
 		initiative = initiative_val
 		initial_coord = coord
 
-func add_to_queue(unit_data,initiative,coord = Vector2(0,0)):
+func add_to_queue(unit_name,initiative,coord = Vector2(0,0)):
 	var unit = Queue_member.new()
-	unit.init(unit_data,initiative,coord)
+	unit.init(unit_name,initiative,coord)
 	turn_queue.push_back(unit)
 	turn_queue.sort_custom(self,"_sort_initiative")
 	

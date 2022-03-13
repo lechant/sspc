@@ -1,6 +1,6 @@
 {
     "summoner":{
-        "move_range" : 5,
+        "move_range" : 3,
         "health" : 10,
         "action_points" : 6,
         "reach" : 1,

@@ -33,10 +33,10 @@ func _ready():
 	#animation_player.play("idle")
 	curve = Curve2D.new()
 	health_ui.max_health = base_stats['health']
+	rng.randomize()
 
 func move(path):
 	animation_player.play("moving")
-	print("play moving animation")
 	path_points_length = path.size()
 	for point in path:
 		curve.add_point(point)
@@ -98,11 +98,11 @@ func is_skill():
 #unit events
 func start_turn():
 	status = status_effects.apply_status(self,"turn_start")
-	print("start turn: " + character_id)
+	#print("start turn: " + character_id)
 	pass
 
 func end_turn():
-	print("end turn: " + character_id)
+	#print("end turn: " + character_id)
 	pass
 
 func move_start():

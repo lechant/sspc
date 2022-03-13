@@ -1,0 +1,26 @@
+{
+    "slime":[
+        {
+            "name":"slam",
+            "range":1,
+            "skill_priority":{
+                "area_of_effect":2
+            },
+            "charge_time":1
+        },
+        {
+            "name":"tackle",
+            "range":1,
+            "skill_priority":{
+                "single_target":true
+            }
+        },
+        {
+            "name":"poison spit",
+            "range":2,
+            "skill_priority":{
+                "single_target":true
+            }
+        }
+    ]
+}
